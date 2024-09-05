@@ -33,7 +33,7 @@ def Compare_trends(company1,company2):
     
 def return_calulator(df, start_date,end_date):
     df['Date']=pd.to_datetime(df['Date'],format='%Y-%m-%d')
-    start_date=min(max(df['Date'].min(),start_date),df['Date'].max())
+    start_date=min(max(df['Date'].min(),start_date),df['Date'].max())>>create
     end_date=min(df['Date'].max(),end_date)
     start_date=pd.to_datetime(start_date)
     end_date=pd.to_datetime(end_date)
@@ -42,8 +42,9 @@ def return_calulator(df, start_date,end_date):
     return_value=(end_price-start_price)/start_price*100
     return return_value
     
-    
-company_file_name=os.listdir('C:\\Users\\win10\\OneDrive\\Desktop\\streamlit_dashboards\\stockPriceData')[1:]
+current_dir = os.path.dirname(__file__)
+data_folder = os.path.join(current_dir, 'stockPriceData')
+company_file_name=os.listdir(data_folder)[1:]
 company_name=[]
 for stock in company_file_name:
     if stock.split('.')[-1]=='csv':
