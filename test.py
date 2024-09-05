@@ -83,8 +83,10 @@ if len(selected_companies)==2 and compare==True:
 else:
     st.warning("Select exactly two stocks to compare")
     
-    
-df=pd.read_csv('stockPriceData\\'+company+'.csv')
+
+script_dir = os.path.dirname(__file__)
+file=os.path.join(script_dir,stockPriceDate,company+'.csv') 
+df=pd.read_csv(file)
 
 sidebar=st.sidebar
 
