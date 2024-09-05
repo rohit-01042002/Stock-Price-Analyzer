@@ -85,7 +85,7 @@ else:
     
 
 script_dir = os.path.dirname(__file__)
-file=os.path.join(script_dir,stockPriceData,company+'.csv') 
+file=os.path.join(script_dir,'stockPriceData',company+'.csv') 
 df=pd.read_csv(file)
 
 sidebar=st.sidebar
