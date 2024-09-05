@@ -38,7 +38,7 @@ def return_calulator(df, start_date,end_date):
     df['Date']=pd.to_datetime(df['Date'],format='%Y-%m-%d')
     start_date=pd.to_datetime(start_date)
     end_date=pd.to_datetime(end_date)
-    start_date=min(max(df['Date'].min(),start_date),df['Date'].max())>>create
+    start_date=min(max(df['Date'].min(),start_date),df['Date'].max())
     end_date=min(df['Date'].max(),end_date)
     start_price=df[df['Date']==start_date].loc[:,'Open'].values[-1]
     end_price=df[df['Date']==end_date].loc[:,'Open'].values[-1]
