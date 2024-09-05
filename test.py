@@ -11,19 +11,22 @@ st.set_page_config(page_title="Stok Price Analyzer",page_icon=":bar_chart")
 st.header("Stock Price Analyzer")
 
 def get_data(company):
-    file_name='stockPriceData\\'+company+'.csv'
+    script_dir = os.path.dirname(__file__)
+    file_name=file_path = os.path.join(script_dir, 'StockPriceData', company+'.csv')
     df=pd.read_csv(file_name)
     st.dataframe(df.head())
     return df
     
 def get_trend(company):
-    file_name='stockPriceData\\'+company+'.csv'
+    script_dir = os.path.dirname(__file__)
+    file_name=file_path = os.path.join(script_dir, 'StockPriceData', company+'.csv')
     df=pd.read_csv(file_name)
     st.line_chart(df,x='Date',y='Open')
     
 def Compare_trends(company1,company2):
-    file_name1='stockPriceData\\'+company1+'.csv'
-    file_name2='stockPriceData\\'+company2+'.csv'
+    script_dir = os.path.dirname(__file__)
+    file_name1=file_path = os.path.join(script_dir, 'StockPriceData', company1+'.csv')
+    file_name2=file_path = os.path.join(script_dir, 'StockPriceData', company2+'.csv')
     df1=pd.read_csv(file_name1)
     df2=pd.read_csv(file_name2)
     fig = go.Figure()
